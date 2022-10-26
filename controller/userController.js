@@ -79,10 +79,20 @@ exports.show = async (req, res, next) => {
   const { id } = req.params;
 
   //const blog = await Blog.findOne({_id:id});
-  const blog = await Blog.findById(id);
+  const user = await User.findById(id);
 
   res.status(200).json({
-    message: "Successfully get blog",
-    data: blog,
+    message: "Successfully get user",
+    data: user,
+  });
+};
+
+exports.remove = async (req, res, next) => {
+  const { id } = req.params;
+
+  await user.findByIdAndDelete(id);
+
+  res.status(200).json({
+    message: "Successfully removed",
   });
 };
